@@ -3,6 +3,7 @@ package de.simtext
 import com.typesafe.config.ConfigFactory
 import de.simtext.domain.{CompareResult, TokenizedText, CompareTuple}
 import org.apache.spark.rdd.RDD
+//import org.apache.spark.mllib
 import org.apache.spark.{SparkConf, SparkContext}
 
 import scala.collection.SortedMap
@@ -10,7 +11,6 @@ import scala.collection.immutable.HashMap
 import scala.reflect.io.Path
 
 object SimText {
-
   // initializing config from resources/application.conf
   val conf = ConfigFactory.load()
   val partitionsCount = conf.getInt("simtext.partitions")

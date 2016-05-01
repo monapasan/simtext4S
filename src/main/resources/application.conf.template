@@ -1,3 +1,29 @@
+similaritytest: {
+  method: "simtext",
+  simtextoptions:{
+    "minmatchlength": 3,
+  },
+  # e.g. use Recall and Precision
+  treshold: 70
+}
+tokenization: {
+  removestopwords: false,
+  ignore: {
+    # If true all text tokens are lowercased before comparison
+    lettercase: true,
+    # If true all numbers are removed before comparison
+    numbers: false,
+    # If true punctuation is removed before comparison
+    punctuation: true,
+    # If true umlauts are replaced by normal letters i.e. ü => ue
+    umlauts: true
+  }
+}
+querycomposition: {
+  # synonyme, cross-language and so on.
+  method: "base"
+}
+
 "simtext" {
   # Number of partitions in which the textfile RDD is splitted.
   # Sparks advise is to choose 2-4 partitions per cpu in your cluster

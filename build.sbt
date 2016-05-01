@@ -6,6 +6,7 @@ scalaVersion := "2.10.5"
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.0",
+  "org.apache.spark" %% "spark-mllib" % "1.6.1",
   "org.apache.spark" %% "spark-core" % "1.6.1",
   "org.specs2" %% "specs2-core" % "3.7.2" % "test"
 )
