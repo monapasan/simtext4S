@@ -49,6 +49,7 @@ object SimText {
       ignoreUmlauts = ignoreUmlauts
     )
 
+
     val tokenizedFiles1 = getTokenizedFilesAsRdd(sc, tokenizer, hdfsDir1)
     val tokenizedFiles2 = getTokenizedFilesAsRdd(sc, tokenizer, hdfsDir2)
 
@@ -59,11 +60,10 @@ object SimText {
         else
           None
     }
-
     val results: RDD[CompareResult] = comparetuples.map { compareTuple =>
       val forwardRefTable: SortedMap[Int, Int] = buildForwardReferenceTable(
-        compareTuple.combinedTokens,
-        minMatchLength
+      compareTuple.combinedTokens,
+      minMatchLength
       )
       val similarity: Double = compareTokenLists(
         compareTuple.splitIndex,
@@ -105,7 +105,7 @@ object SimText {
     * List (to, be, or, not, to be, to, be, or, not)
     * FwdRefTable: (0 -> 4, 1 -> 8)
     *
-    * @param tokens concatenated tokenlist of two textfiles
+    * @param tokens concatenated tok enlist of two textfiles
     * @param minMatchLength minimum length of tokensequence to count as duplicate
     * @return forward reference table of type SortedMap[Int, Int]
     */
@@ -125,7 +125,7 @@ object SimText {
           }
       }
 
-    forwardRefTable
+  forwardRefTable
   }
 
   /**
